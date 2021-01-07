@@ -6,6 +6,8 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/provider.dart';
 
+import 'HomePage.dart';
+
 class CartViewPage extends StatefulWidget {
   @override
   _CartViewPageState createState() => _CartViewPageState();
@@ -19,6 +21,14 @@ class _CartViewPageState extends State<CartViewPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.deepOrange,
+        leading: IconButton(
+            icon: Icon(Icons.arrow_left),
+            onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (BuildContext context) {
+                return MyHomePage();
+              }));
+            }),
         title: Text("Your Cart"),
         actions: [
           IconButton(
