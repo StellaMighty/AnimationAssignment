@@ -166,15 +166,47 @@ class _CartViewPageState extends State<CartViewPage> {
                                               mainAxisAlignment:
                                                   MainAxisAlignment.start,
                                               children: [
-                                                Container(
-                                                  width: MediaQuery.of(context)
-                                                          .size
-                                                          .width *
-                                                      0.4,
-                                                  child: Image.asset(
-                                                    "assets/shoes/shoe2.jpeg",
-                                                  ),
-                                                ),
+                                                StreamBuilder(
+                                                    stream: FirebaseFirestore
+                                                        .instance
+                                                        .collection("products")
+                                                        .doc(_cartResult[
+                                                            'ProductId'])
+                                                        .snapshots(),
+                                                    builder:
+                                                        (context, snapshot) {
+                                                      if (snapshot.hasData) {
+                                                        return Container(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.4,
+                                                          child: Padding(
+                                                            padding:
+                                                                const EdgeInsets
+                                                                        .only(
+                                                                    right:
+                                                                        10.0),
+                                                            child:
+                                                                Image.network(
+                                                              snapshot
+                                                                  .data['URL'],
+                                                            ),
+                                                          ),
+                                                        );
+                                                      } else {
+                                                        return Container(
+                                                          width: MediaQuery.of(
+                                                                      context)
+                                                                  .size
+                                                                  .width *
+                                                              0.4,
+                                                          child: Image.asset(
+                                                              "images.png"),
+                                                        );
+                                                      }
+                                                    }),
                                                 Expanded(
                                                   child: Column(
                                                     mainAxisAlignment:

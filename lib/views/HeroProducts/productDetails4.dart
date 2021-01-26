@@ -45,7 +45,7 @@ class _ProductDetailsState extends State<ProductDetails> {
           actions: [
             IconButton(
                 icon: FaIcon(
-                  FontAwesomeIcons.cartPlus,
+                  FontAwesomeIcons.googlePlay,
                   color: Colors.white,
                   size: 14,
                 ),
@@ -58,9 +58,8 @@ class _ProductDetailsState extends State<ProductDetails> {
           ],
         ),
         body: Padding(
-          padding: const EdgeInsets.all(10.0),
-          child: ListView(
-            children: [
+            padding: const EdgeInsets.all(10.0),
+            child: ListView(children: [
               Center(
                 child: Hero(
                     tag: "product4",
@@ -85,7 +84,7 @@ class _ProductDetailsState extends State<ProductDetails> {
                     padding: const EdgeInsets.all(10.0),
                     child: Container(
                       child: Text(
-                        "White and Black canvas",
+                        widget.description.toString(),
                         style: TextStyle(
                             fontSize: 16, fontStyle: FontStyle.italic),
                       ),
@@ -98,7 +97,13 @@ class _ProductDetailsState extends State<ProductDetails> {
                         fontWeight: FontWeight.bold,
                         fontStyle: FontStyle.italic),
                   ),
+                  SizedBox(
+                    height: 10,
+                  ),
                   Text("Quantity: ${widget.quantity.toString()}"),
+                  SizedBox(
+                    height: 10,
+                  ),
                   FlatButton(
                     onPressed: () {
                       if (_customer.uid == null) {
@@ -170,95 +175,95 @@ class _ProductDetailsState extends State<ProductDetails> {
                     color: Colors.deepOrange,
                   ),
                   SizedBox(height: 10),
-                  Text("Share With Friends",
-                      style: TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,
-                      )),
-                  SizedBox(height: 10),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      IconButton(
-                          color: Colors.grey,
-                          icon: FaIcon(
-                            FontAwesomeIcons.twitter,
-                            color: Colors.blue,
-                          ),
-                          onPressed: () {
-                            FirebaseFirestore.instance
-                                .collection("products")
-                                .doc(widget.productId)
-                                .update({"price": widget.price - 200});
-                          }),
-                      IconButton(
-                          color: Colors.grey,
-                          icon: FaIcon(
-                            FontAwesomeIcons.facebook,
-                            color: Colors.blue,
-                          ),
-                          onPressed: () {}),
-                      IconButton(
-                          color: Colors.black,
-                          icon: FaIcon(
-                            FontAwesomeIcons.instagram,
-                            color: Colors.deepOrange,
-                          ),
-                          onPressed: () {}),
-                    ],
-                  ),
-                  SizedBox(height: 10),
+                  //     Text("Share With Friends",
+                  //         style: TextStyle(
+                  //           fontSize: 15,
+                  //           fontWeight: FontWeight.bold,
+                  //         )),
+                  //     SizedBox(height: 10),
+                  //     Row(
+                  //       mainAxisAlignment: MainAxisAlignment.center,
+                  //       children: [
+                  //         IconButton(
+                  //             color: Colors.grey,
+                  //             icon: FaIcon(
+                  //               FontAwesomeIcons.twitter,
+                  //               color: Colors.blue,
+                  //             ),
+                  //             onPressed: () {
+                  //               FirebaseFirestore.instance
+                  //                   .collection("products")
+                  //                   .doc(widget.productId)
+                  //                   .update({"price": widget.price - 200});
+                  //             }),
+                  //         IconButton(
+                  //             color: Colors.grey,
+                  //             icon: FaIcon(
+                  //               FontAwesomeIcons.facebook,
+                  //               color: Colors.blue,
+                  //             ),
+                  //             onPressed: () {}),
+                  //         IconButton(
+                  //             color: Colors.black,
+                  //             icon: FaIcon(
+                  //               FontAwesomeIcons.instagram,
+                  //               color: Colors.deepOrange,
+                  //             ),
+                  //             onPressed: () {}),
+                  //       ],
+                  //     ),
+                  //     SizedBox(height: 10),
+                  //   ],
+                  // ),
+                  // SizedBox(
+                  //   height: 15,
+                  // ),
+                  // CarouselSlider(
+                  //   options: CarouselOptions(
+                  //       height: 100,
+                  //       autoPlay: true,
+                  //       autoPlayAnimationDuration: Duration(milliseconds: 50)),
+                  //   items: [
+                  //     Container(
+                  //       decoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.circular(12),
+                  //         image: DecorationImage(
+                  //           fit: BoxFit.contain,
+                  //           image: AssetImage("assets/shoes/shoe15.jpeg"),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     Container(
+                  //       decoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.circular(12),
+                  //         image: DecorationImage(
+                  //           fit: BoxFit.contain,
+                  //           image: AssetImage("assets/shoes/shoe12.jpeg"),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     Container(
+                  //       decoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.circular(12),
+                  //         image: DecorationImage(
+                  //           fit: BoxFit.contain,
+                  //           image: AssetImage("assets/shoes/shoe1.jpeg"),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     Container(
+                  //       decoration: BoxDecoration(
+                  //         borderRadius: BorderRadius.circular(12),
+                  //         image: DecorationImage(
+                  //           fit: BoxFit.contain,
+                  //           image: AssetImage("assets/shoes/shoe4.jpeg"),
+                  //         ),
+                  //       ),
+                  //     ),
+                  //   ],
+                  // ),
                 ],
               ),
-              SizedBox(
-                height: 15,
-              ),
-              CarouselSlider(
-                options: CarouselOptions(
-                    height: 100,
-                    autoPlay: true,
-                    autoPlayAnimationDuration: Duration(milliseconds: 50)),
-                items: [
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: AssetImage("assets/shoes/shoe15.jpeg"),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: AssetImage("assets/shoes/shoe12.jpeg"),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: AssetImage("assets/shoes/shoe1.jpeg"),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(12),
-                      image: DecorationImage(
-                        fit: BoxFit.contain,
-                        image: AssetImage("assets/shoes/shoe4.jpeg"),
-                      ),
-                    ),
-                  ),
-                ],
-              ),
-            ],
-          ),
-        ));
+            ])));
   }
 }

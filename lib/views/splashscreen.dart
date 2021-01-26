@@ -30,15 +30,12 @@ class _SplashScreenState extends State<SplashScreen> {
   Widget build(BuildContext context) {
     checkAppOpened();
     return Scaffold(
-      body: Container(
-        constraints: BoxConstraints.expand(),
+      body: DecoratedBox(
         decoration: BoxDecoration(
-            image: DecorationImage(
-          fit: BoxFit.cover,
-          image: AssetImage(
-            "assets/shoes/wallpaper.jpg",
+          image: DecorationImage(
+            image: AssetImage("assets/shoes/wallpaper.jpg"),
           ),
-        )),
+        ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -54,5 +51,14 @@ class _SplashScreenState extends State<SplashScreen> {
         ),
       ),
     );
+    // body: Container(
+    //   constraints: BoxConstraints.expand(),
+    //   decoration: BoxDecoration(
+    //     color: Colors.white60,
+    //     image: DecorationImage(
+    //       // fit: BoxFit.cover,
+    //       image: AssetImage("assets/shoes/splash.jpg"),
+    //     ),
+    //   ),
   }
 }
